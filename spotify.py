@@ -1,5 +1,6 @@
 import pprint
 import sys
+import sqlite3 as sql
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 
