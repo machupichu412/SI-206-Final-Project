@@ -13,15 +13,9 @@ client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secr
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 
-artist_name = []
-track_name = []
-popularity = []
-track_id = []
-track_results = sp.search(q='year:2018', type='track', limit=25)
-for i, t in enumerate(track_results['tracks']['items']):
-        artist_name.append(t['artists'][0]['name'])
-        track_name.append(t['name'])
-        track_id.append(t['id'])
-        popularity.append(t['popularity'])
-
-print(len(artist_name))
+def getArtists(sp):
+        count = 0
+        artist_results = sp.search(q='genre:pop', type='artist', limit=25)
+        # for i in artist_results:
+        #         count += 1
+        print(artist_results)
