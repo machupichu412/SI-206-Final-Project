@@ -88,3 +88,13 @@ def visualization_salary_data(cur, conn):
     plt.tight_layout()
     plt.show()
 '''
+
+def main():
+    cur, conn = setUpDatabase("junkies.db")
+    create_tastedive_table(cur, conn)
+    create_artists_table(cur, conn)
+    create_spotify_table(cur, conn)
+    create_genre_table(cur, conn)
+
+if __name__ == "__main__":
+    main()
