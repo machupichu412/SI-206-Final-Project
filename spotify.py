@@ -2,7 +2,6 @@ import xml.etree.ElementTree as ET
 import json
 import requests
 from requests_oauthlib import OAuth1
-import xmltodict
 import sqlite3 as sql
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
