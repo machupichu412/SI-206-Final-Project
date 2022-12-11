@@ -11,7 +11,7 @@ def setUpDatabase(db_name):
 
 def create_tastedive_table(cur, conn):
     cur.execute("DROP TABLE IF EXISTS tastedive")
-    cur.execute("CREATE TABLE tastedive (artist_id INTEGER PRIMARY KEY, similar_artist_id INTEGER, media_type TEXT)")
+    cur.execute("CREATE TABLE tastedive (artist_id INTEGER, similar_artist_id INTEGER, media_type TEXT)")
     conn.commit()
 
 def create_artists_table(cur, conn):
