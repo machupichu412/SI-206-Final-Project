@@ -1,1 +1,0 @@
-print(tree[5][0].find("type").text)
