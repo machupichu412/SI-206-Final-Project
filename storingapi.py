@@ -11,12 +11,12 @@ def setUpDatabase(db_name):
 
 def create_tastedive_table(cur, conn):
     cur.execute("DROP TABLE IF EXISTS tastedive")
-    cur.execute("CREATE TABLE tastedive (artist_id INTEGER, similar_artist_id INTEGER, media_type TEXT)")
+    cur.execute("CREATE TABLE tastedive (artist_id INTEGER PRIMARY KEY, similar_artist_id INTEGER, media_type TEXT)")
     conn.commit()
 
 def create_artists_table(cur, conn):
     cur.execute("DROP TABLE IF EXISTS artists")
-    cur.execute("CREATE TABLE artists (artist_id INTEGER PRIMARY KEY, name TEXT, age INTEGER, net_worth INTEGER)")
+    cur.execute("CREATE TABLE artists (artist_id INTEGER PRIMARY KEY, name TEXT UNIQUE, age INTEGER, net_worth INTEGER)")
     conn.commit()
 
 def create_spotify_table(cur, conn):
@@ -26,7 +26,7 @@ def create_spotify_table(cur, conn):
 
 def create_genre_table(cur, conn):
     cur.execute("DROP TABLE IF EXISTS genre")
-    cur.execute("CREATE TABLE genre (genre_id INTEGER PRIMARY KEY, genre_name TEXT)")
+    cur.execute("CREATE TABLE genre (genre_id INTEGER PRIMARY KEY, genre_name TEXT UNIQUE)")
     conn.commit()
 
 

@@ -1,1 +1,1 @@
-from spotipy.oauth2 import SpotifyOAuth
+print(tree[5][0].find("type").text)

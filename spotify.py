@@ -1,8 +1,8 @@
 import xml.etree.ElementTree as ET
 import json
+from unidecode import unidecode
 import requests
 from requests_oauthlib import OAuth1
-import xmltodict
 import sqlite3 as sql
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
@@ -17,10 +17,11 @@ def checkStatus(artistName):
         auth = OAuth1(musicstorycid, musicstorysecret, token, tokensecret)
         response = requests.get( "http://api.music-story.com/artist/search?", params = {'name': artistName}, auth = auth)
         tree = ET.fromstring(response.text)
-        if tree[5][0].find("type").text == "Person":
-                return True
-        else:
-                return False
+        for i in range(len(tree[5])):
+            if tree[5][i].find("type").text == "Person" and tree[5][i].find("name").text == artistName:
+                    return True
+            else:
+                    return False
 
 
 def getArtists(genre, curr, conn):
@@ -29,6 +30,7 @@ def getArtists(genre, curr, conn):
         curr.execute("SELECT genre_id FROM genre WHERE genre_name = ?", (genre, ))
         genre_id = curr.fetchone()[0]
         conn.commit()
+        count = 0
         spotipycid = "f82a1ef57e2b4bab94afa5fc9f146d0f"
         spotipysecret = "bdb623d5ad514a5c9208d26b578479e9"
         client_credentials_manager = SpotifyClientCredentials(client_id=spotipycid, client_secret=spotipysecret)
@@ -39,14 +41,15 @@ def getArtists(genre, curr, conn):
                 name = artist["name"]
                 popularity = artist["popularity"]
                 if checkStatus(name):
-                        curr.execute("INSERT OR IGNORE INTO artists (name) VALUES (?)", (name, ))
+                        curr.execute("INSERT OR IGNORE INTO artists (name) VALUES (?)", (unidecode(name), ))
                         conn.commit()
-                        curr.execute("SELECT artist_id FROM artists WHERE name = ?", (name, ))
+                        curr.execute("SELECT artist_id FROM artists WHERE name = ?", (unidecode(name), ))
                         artist_id = curr.fetchone()[0]
                         conn.commit()
                         curr.execute("INSERT OR IGNORE INTO spotify (artist_id, popularity, genre_id) VALUES (?, ?, ?)", (artist_id, popularity, genre_id))
                         conn.commit()
-        print("finished")
+                        count += 1
+        print(f"added {count} artists to the database")
 
 def main():
         conn = sql.connect("junkies.db")
