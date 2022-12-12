@@ -25,7 +25,7 @@ def update_artist_table(artists, cur, conn):
                         conn.commit()
         else:
             print("Error:", response.status_code, response.text)
-        print("finished")
+    print("finished")
 
 
 def main():

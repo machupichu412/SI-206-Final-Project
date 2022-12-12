@@ -73,6 +73,9 @@ def avg_net_worth_by_genre_vis(cur, conn):
     for i, txt in enumerate(min_names):
         plt.annotate(txt, (genres[i], min_net_worths[i]))
 
+    plt.xlabel("music genre")
+    plt.ylabel("net worth (USD)")
+    plt.gcf().axes[0].yaxis.get_major_formatter().set_scientific(False)
     plt.xticks(rotation=45, ha='right')
     plt.show()
 
