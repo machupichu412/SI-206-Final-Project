@@ -244,6 +244,7 @@ def popularity_vs_net_worth_vis(cur, conn):
     plt.show()
 
 def age_vs_net_worth_vis(cur, conn):
+
     cur.execute("SELECT artists.net_worth, artists.age, artists.name FROM artists WHERE artists.age != -1 AND artists.age IS NOT NULL AND artists.net_worth != -1 AND artists.net_worth IS NOT NULL")
     networthagelist = cur.fetchall()
 
