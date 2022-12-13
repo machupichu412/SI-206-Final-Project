@@ -44,9 +44,7 @@ def main():
     create_artists_table(cur, conn)
     create_spotify_table(cur, conn)
     create_genre_table(cur, conn)
-    # cur.execute("DELETE FROM artists WHERE artist_id > 106")
-    # cur.execute("DELETE FROM tastedive WHERE artist_id = 3 OR artist_id = 1 OR artist_id = 70")
-    # conn.commit()
+
 
 if __name__ == "__main__":
     main()
