@@ -1,0 +1,32 @@
+pop max net worth: Rihanna, $550000000
+pop min net worth: SZA, $3000000
+hip-hop max net worth: Eminem, $230000000
+hip-hop min net worth: Lil Peep, $300000
+indie max net worth: G-Eazy, $12000000
+indie min net worth: Labrinth, $2000000
+country max net worth: George Strait, $300000000
+country min net worth: Luke Combs, $5000000
+rock max net worth: Elton John, $500000000
+rock min net worth: Billy Joel, $225000000
+edm max net worth: Calvin Harris, $300000000
+edm min net worth: Bebe Rexha, $5000000
+r&b max net worth: Michael Jackson, $500000000
+r&b min net worth: Jhené Aiko, $1000000
+rap max net worth: Kanye West, $3200000000
+rap min net worth: Polo G, $3000000
+
+Correlation between artist age and net worth: 0.23534626056084296
+        
+Covariance between artist age and net worth: 
+[[1.05113481e+02 9.45063783e+08]
+ [9.45063783e+08 1.53408427e+17]]
+        
+Correlation between artist's Spotify popularity and net worth: 0.21030966031643575
+        
+Covariance between artist's Spotify popularity and net worth: 
+[[4.26067901e+01 5.07563457e+08]
+ [5.07563457e+08 1.36704696e+17]]
+        
+Correlation between artist's age and net worth without Kanye: 0.4484852979982344
+        
+Correlation between artist's Spotify popularity and net worth without Kanye: 0.24245983176833572
